@@ -1,0 +1,3 @@
+CREATE TRIGGER products_notify_event
+AFTER INSERT OR UPDATE OR DELETE ON products
+    FOR EACH ROW EXECUTE PROCEDURE notify_event();
