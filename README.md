@@ -16,6 +16,7 @@ docker-compose up --build
 
   Defines the table, function and sets the trigger. The
   channel name is a geric `events`
+
 * `services/notifier/src/notifier/main.py`
 
   Simple script that connects to Postgres, adds an event listener
