@@ -11,8 +11,10 @@ pass_config = click.make_pass_decorator(Config)
 @click.group()
 @click.option("-c", "--connection", help="Connection string")
 @click.pass_context
-def group(ctx: click.Context):
-    ctx.obj = Config()
+def group(ctx: click.Context, connection: str):
+    ctx.obj = Config(
+        connection=connection,
+    )
 
 
 @group.command()

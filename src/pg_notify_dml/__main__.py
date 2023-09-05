@@ -1,3 +1,3 @@
-from cli import group
+from pg_notify_dml.cli import group
 
 group()
