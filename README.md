@@ -6,3 +6,12 @@ be published though NOTIFY and LISTENed in your framework of choice. Initial
 support is for FastAPI.
 
 [Original Idea](./legacy/README.md)
+
+
+## Development
+
+### Running the tests
+
+```bash
+hatch run test
+```
