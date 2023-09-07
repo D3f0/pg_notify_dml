@@ -34,7 +34,7 @@ jobs:
           python -m pip install hatch
       # FIXME: Issues with testconatinrs and sqlalchemy stubs for lint:all (mypy)
       - name: Lint
-        run: hatch run style:lint
+        run: hatch run lint:style
 
       - name: Tests
         run: hatch run +py=${{ matrix.python-version }} test
