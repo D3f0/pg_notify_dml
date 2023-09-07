@@ -1,15 +1,15 @@
-from typing import Optional, List
-import typer
-from loguru import logger
 import asyncio
-from asyncpg.connection import Connection
-from asyncpg import Record
+from dataclasses import dataclass
+from typing import List, Optional
+
 import asyncpg
 import rich
-from dataclasses import dataclass
+import typer
+from asyncpg import Record
+from asyncpg.connection import Connection
+from loguru import logger
 from rich.console import Console
 from rich.table import Column, Table
-
 
 app = typer.Typer()
 

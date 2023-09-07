@@ -1,8 +1,11 @@
 # noqa: T201, RUF100
-from functools import lru_cache
-import click
 from dataclasses import dataclass, field
-from sqlalchemy import create_engine, Engine, MetaData, DDL
+
+import click
+
+# from sqlalchemy import DDL
+from sqlalchemy import Engine, MetaData, create_engine
+
 
 @dataclass
 class Config:
@@ -35,17 +38,19 @@ def group(ctx: click.Context, connection: str):
 @pass_config
 def show_tables(config: Config):
     """Shows available tables in the connection"""
-    if config.metadata:
-        print(*config.metadata.tables.keys(), sep="\n")
-    else:
-        print("A connection is required.")  # noqa: T201, RUF100
+    if not config.metadata:
+        message = "A connection is required"
+        raise click.UsageError(message)
+    tables = "\n".join(config.metadata.tables.keys())
+    click.secho(tables)
+
 
 @group.command()
 @pass_config
 def setup_trigger(config: Config):
     """Setups the trigger"""
     if not config.engine:
-        print("Can't operate without a connection") # noqa: RUF100
-    else:
-        breakpoint()
-        
+        message = "Can't operate without a connection"
+        raise click.UsageError(message)
+
+

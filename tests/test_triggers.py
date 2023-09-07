@@ -13,11 +13,11 @@ def test_testcontainer_db_connects_to_sa():
 
 
 def test_show_tables():
-    Base = declarative_base()
+    Base = declarative_base()  # noqa: N806
     table_name = "test_table"
     class TestTable(Base):
         __tablename__ = table_name
-        id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)
+        id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)  # noqa: A003
         name = sqlalchemy.Column(sqlalchemy.String)
 
     with postgres.PostgresContainer() as db:
@@ -31,11 +31,11 @@ def test_show_tables():
 
 
 def test_create_trigger():
-    Base = declarative_base()
+    Base = declarative_base()  # noqa: N806
     table_name = "test_table"
     class TestTable(Base):
         __tablename__ = table_name
-        id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)
+        id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)  # noqa: A003
         name = sqlalchemy.Column(sqlalchemy.String)
 
     with postgres.PostgresContainer() as db:

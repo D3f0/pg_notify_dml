@@ -132,6 +132,8 @@ unfixable = [
   "F401",
 ]
 
+exclude = ["legacy/*"]
+
 [tool.ruff.isort]
 known-first-party = ["pg_notify_dml"]
 

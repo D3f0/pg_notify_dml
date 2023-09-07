@@ -1,6 +1,7 @@
-import sqlalchemy
 import logging
 from typing import Dict
+
+import sqlalchemy
 
 TRIGGER = """
 CREATE TRIGGER {table}_notify_event
@@ -15,6 +16,6 @@ def get_tables(meta: sqlalchemy.MetaData) -> Dict[str, str]:
         sql = TRIGGER.format(table=name)
         logging.debug("SQL for %s: %s", table, sql)
 
-def ensure_event_function(engine: sqlalchemy.Engine):
-    """Ensures the event function is present in the engine"""
-    ...
+# def ensure_event_function(engine: sqlalchemy.Engine):
+#     """Ensures the event function is present in the engine"""
+#     ...

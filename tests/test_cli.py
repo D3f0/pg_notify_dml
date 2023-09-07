@@ -1,4 +1,3 @@
-import pytest
 from click.testing import CliRunner
 
 from pg_notify_dml import cli
