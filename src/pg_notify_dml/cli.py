@@ -25,6 +25,7 @@ class Config:
 
 pass_config = click.make_pass_decorator(Config)
 
+
 @click.group()
 @click.option("-c", "--connection", help="Connection string")
 @click.pass_context
@@ -52,5 +53,3 @@ def setup_trigger(config: Config):
     if not config.engine:
         message = "Can't operate without a connection"
         raise click.UsageError(message)
-
-

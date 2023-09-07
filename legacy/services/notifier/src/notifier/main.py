@@ -49,9 +49,7 @@ config: Config = Config()
 
 @app.callback()
 def main(
-    user: str = typer.Option(
-        expose_value=True, show_default=True, envvar="DB_USER", default="postgres"
-    ),
+    user: str = typer.Option(expose_value=True, show_default=True, envvar="DB_USER", default="postgres"),
     password: str = typer.Option(envvar="DB_PASSWORD", default="postgres"),
     name: str = typer.Option(envvar="DB_NAME", default="example"),
     host: str = typer.Option(envvar="DB_HOST", default="postgres"),
@@ -99,7 +97,9 @@ def describe_table(table_name: str):
 
 @app.command()
 @logger.catch()
-def show_events(channel: str = typer.Option(envvar="DB_CHANNEL", default="events"),):
+def show_events(
+    channel: str = typer.Option(envvar="DB_CHANNEL", default="events"),
+):
     def callback(connection, pid, channel, payload) -> None:
         rich.print(locals())
 
@@ -115,4 +115,3 @@ def show_events(channel: str = typer.Option(envvar="DB_CHANNEL", default="events
 
 if __name__ == "__main__":
     app()
-
